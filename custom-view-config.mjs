@@ -10,7 +10,7 @@ const config = {
     },
     production: {
       customViewId: 'clysrp6th0023bqy5trwebd54',
-      url: 'https://crm-integration-felipe-lemos-projects.vercel.app/',
+      url: 'https://crm-integration.netlify.app/',
     },
   },
   oAuthScopes: {
