@@ -9,8 +9,8 @@ const config = {
       initialProjectKey: 'b2b-demo-fr',
     },
     production: {
-      customViewId: 'TODO',
-      url: 'https://my-custom-view.com',
+      customViewId: 'clysrp6th0023bqy5trwebd54',
+      url: 'https://crm-integration-pi.vercel.app/',
     },
   },
   oAuthScopes: {
@@ -21,7 +21,7 @@ const config = {
   typeSettings: {
     size: 'LARGE',
   },
-  locators: ['products.product_details.general'],
+  locators: ['orders.order_details.general'],
 };
 
 export default config;
