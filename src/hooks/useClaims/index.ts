@@ -5,7 +5,7 @@ import ClaimMapper from '../../mappers/ClaimMapper';
 //import { useClaimsReturn } from './types';
 
 const useClaims = (): any => {
-  const getClaims = async () => {
+  const getClaims = async (orderId: string) => {
     try {
       const response = await axios.get(
         `https://api.trello.com/1/lists/668e9043328ae49b9d11bf25/cards?key=9d845182749f62c72011eb62429a2a40&token=ATTA858a39128ead69ba1c26d7ff11f23e66379bbd086bc5563c12d713d8844ba16d783FB2D2`
@@ -27,7 +27,10 @@ const useClaims = (): any => {
           }
         })
       );
-      return mappedClaimData;
+      const filteredClaimData = mappedClaimData.filter(
+        (claim: any) => claim.orderId === orderId
+      );
+      return filteredClaimData;
     } catch (error) {
       console.log(error);
       throw error;

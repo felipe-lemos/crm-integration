@@ -4,9 +4,18 @@ export default class ClaimMapper {
       id: claim.id,
       name: claim.name,
       desc: claim.desc,
+      orderId: await this.getOrderId(data),
       customFields: await this.customFieldsToCustomFields(data),
     };
     return mappedClaim;
+  }
+
+  static getOrderId(data: any): any {
+    const orderId = data?.find(
+      (customField: any) =>
+        customField.idCustomField === '669f7d0d516a997bac368b3e'
+    ).value.text;
+    return orderId;
   }
 
   static customFieldsToCustomFields(data: any): any {

@@ -18,13 +18,14 @@ const Channels = () => {
   const url = new URL(hostUrl);
 
   const orderId = url.pathname.split('/')[3];
+
   const { getClaims } = useClaims();
 
   const [claims, setClaims] = useState<Claim[]>([]);
 
   useEffect(() => {
     const fetchClaims = async () => {
-      const response = await getClaims();
+      const response = await getClaims(orderId);
 
       setClaims(response);
     };
