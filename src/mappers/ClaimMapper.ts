@@ -1,48 +1,44 @@
+import { response } from 'msw';
+
 export default class ClaimMapper {
   static async mapClaim(claim: any, data: any): Promise<any> {
     const mappedClaim: any = {
       id: claim.id,
       name: claim.name,
       desc: claim.desc,
-      orderId: await this.getOrderId(data),
-      customFields: await this.customFieldsToCustomFields(data),
+      orderId: await this.getCustomFieldData('669f7d0d516a997bac368b3e', data),
+      claimNumber: await this.getCustomFieldData(
+        '668e92134dfeaa3a10872db2',
+        data
+      ),
+      status: await this.getCustomFieldData('668e923dd9a627a423c9bc8f', data),
+      accountId: await this.getCustomFieldData(
+        '668e92078c85550bc2956050',
+        data
+      ),
+      submissionDate: this.formatDate(
+        await this.getCustomFieldData('668e91e57f81eb369ddbb6ec', data)
+      ),
+      productId: await this.getCustomFieldData(
+        '668e91f9b22fea75c5627332',
+        data
+      ),
     };
     return mappedClaim;
   }
 
-  static getOrderId(data: any): any {
-    const orderId = data?.find(
-      (customField: any) =>
-        customField.idCustomField === '669f7d0d516a997bac368b3e'
-    ).value.text;
-    return orderId;
+  static formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toDateString();
+  }
+  static getCustomFieldData(customFieldId: string, data: any): any {
+    const customField = data?.find(
+      (customField: any) => customField.idCustomField === customFieldId
+    );
+    const value = this.customFieldValuesToValue(customField);
+    return value;
   }
 
-  static customFieldsToCustomFields(data: any): any {
-    const customFields = data?.map((customField: any) => {
-      return {
-        name: this.customFieldIdToName(customField.idCustomField),
-        value: this.customFieldValuesToValue(customField),
-      };
-    });
-    return customFields;
-  }
-  static customFieldIdToName(id: any): any {
-    switch (id) {
-      case '668e91f9b22fea75c5627332':
-        return 'Product ID';
-      case '668e91e57f81eb369ddbb6ec':
-        return 'Submission Date';
-      case '668e92078c85550bc2956050':
-        return 'Account ID';
-      case '668e92134dfeaa3a10872db2':
-        return 'Claim Number';
-      case '668e923dd9a627a423c9bc8f':
-        return 'Status';
-      default:
-        return null;
-    }
-  }
   static customFieldValuesToValue(customField: any): any {
     if (customField.value?.date) {
       return customField.value.date;

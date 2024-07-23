@@ -20,7 +20,7 @@ const Channels = () => {
   const url = new URL(hostUrl);
 
   const orderId = url.pathname.split('/')[3];
-
+  // const orderId = '9a4bfdef-9779-4f18-9a94-bf4eba148f03';
   const { getClaims } = useClaims();
 
   const [claims, setClaims] = useState<Claim[]>([]);
@@ -35,9 +35,13 @@ const Channels = () => {
   }, []);
 
   const columns = [
-    { key: 'title', label: 'Title' },
-    { key: 'country', label: 'Country' },
+    { key: 'status', label: 'Status' },
+    { key: 'claimNumber', label: 'Claim Number' },
+    { key: 'submissionDate', label: 'Submission Date' },
+    { key: 'accountId', label: 'Account Id' },
+    { key: 'desc', label: 'Description' },
   ];
+
   return (
     <Spacings.Stack scale="xl">
       <Spacings.Stack scale="s">
@@ -45,9 +49,11 @@ const Channels = () => {
         <Text.Subheadline as="h4">Order ID: {orderId}</Text.Subheadline>
         <hr />
         <DataTableManager columns={columns}>
-          <DataTable rows={claims} />
+          <DataTable
+            rows={claims}
+            onRowClick={(item, index) => alert(`Row click: Row number ${item}`)}
+          />
         </DataTableManager>
-        <pre>{JSON.stringify(claims, null, 4)}</pre>
       </Spacings.Stack>
     </Spacings.Stack>
   );
