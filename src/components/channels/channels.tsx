@@ -14,8 +14,10 @@ interface Claim {
   customFields: any[];
 }
 const Channels = () => {
-  const customViewContext = useCustomViewContext();
+  const hostUrl = useCustomViewContext((context) => context.hostUrl);
+  const url = new URL(hostUrl);
 
+  const orderId = url.pathname.split('/')[3];
   const { getClaims } = useClaims();
 
   const [claims, setClaims] = useState<Claim[]>([]);
@@ -33,10 +35,11 @@ const Channels = () => {
     <Spacings.Stack scale="xl">
       <Spacings.Stack scale="s">
         <Text.Headline as="h2" intlMessage={messages.title} />
-        <Text.Subheadline as="h4">Test</Text.Subheadline>
-        <pre>{JSON.stringify(claims, null, 4)}</pre>
+
+        <Text.Subheadline as="h4">Order ID: {orderId}</Text.Subheadline>
         <hr />
-        <pre>{JSON.stringify(customViewContext, null, 4)}</pre>
+
+        <pre>{JSON.stringify(claims, null, 4)}</pre>
       </Spacings.Stack>
     </Spacings.Stack>
   );
