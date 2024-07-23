@@ -2,6 +2,11 @@
  * @type {import('@commercetools-frontend/application-config').ConfigOptionsForCustomView}
  */
 const config = {
+  headers: {
+    csp: {
+      'connect-src': ['https://api.trello.com'],
+    },
+  },
   name: 'Crm Integration',
   cloudIdentifier: 'gcp-eu',
   env: {
