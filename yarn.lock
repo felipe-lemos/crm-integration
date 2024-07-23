@@ -1884,7 +1884,7 @@
     "@emotion/styled" "^11.10.5"
     prop-types "15.8.1"
 
-"@commercetools-uikit/data-table-manager@19.8.0":
+"@commercetools-uikit/data-table-manager@19.8.0", "@commercetools-uikit/data-table-manager@^19.8.0":
   version "19.8.0"
   resolved "https://registry.yarnpkg.com/@commercetools-uikit/data-table-manager/-/data-table-manager-19.8.0.tgz#075f36ed7afc0b225b8f4a3756bc4db64b8f527d"
   integrity sha512-gpeuNCNWXL467BPP9kV0RyeVev65OEKMT6uJ1+9viNtrDnNLfoXtOcqJEKBOouuIw/h84/JLrP0ZnW8sQbUVyQ==
@@ -1920,7 +1920,7 @@
     prop-types "15.8.1"
     react-beautiful-dnd "13.1.1"
 
-"@commercetools-uikit/data-table@^19.2.0":
+"@commercetools-uikit/data-table@^19.8.0":
   version "19.8.0"
   resolved "https://registry.yarnpkg.com/@commercetools-uikit/data-table/-/data-table-19.8.0.tgz#b6b42d896e6ce08c21fd52568468df98fc4f02a3"
   integrity sha512-rajLwuI0Zk8eBNHS1C6MJQycMYnF/hRG3soX3zalx9J4irzvDDOz129CLBQ5uCEROczKckLWL1cMXGcdtfPAAA==
