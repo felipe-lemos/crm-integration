@@ -51,7 +51,9 @@ const Claims = () => {
         <DataTableManager columns={columns}>
           <DataTable
             rows={claims}
-            onRowClick={(item, index) => alert(`Row click: Row number ${item}`)}
+            onRowClick={(item, index) =>
+              alert(`Row click: Row number ${JSON.stringify(item, null, 2)}`)
+            }
           />
         </DataTableManager>
       </Spacings.Stack>
