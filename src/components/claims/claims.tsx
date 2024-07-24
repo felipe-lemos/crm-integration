@@ -1,6 +1,6 @@
 import Spacings from '@commercetools-uikit/spacings';
 import Text from '@commercetools-uikit/text';
-import messages from './messages';
+
 import useClaims from '../../hooks/useClaims';
 import { useEffect, useState } from 'react';
 import DataTableManager from '@commercetools-uikit/data-table-manager';
@@ -15,7 +15,7 @@ interface Claim {
   due: string;
   customFields: any[];
 }
-const Channels = () => {
+const Claims = () => {
   const hostUrl = useCustomViewContext((context) => context.hostUrl);
   const url = new URL(hostUrl);
 
@@ -45,7 +45,7 @@ const Channels = () => {
   return (
     <Spacings.Stack scale="xl">
       <Spacings.Stack scale="s">
-        <Text.Headline as="h2" intlMessage={messages.title} />
+        <Text.Headline as="h2">Claims </Text.Headline>
         <Text.Subheadline as="h4">Order ID: {orderId}</Text.Subheadline>
         <hr />
         <DataTableManager columns={columns}>
@@ -58,6 +58,6 @@ const Channels = () => {
     </Spacings.Stack>
   );
 };
-Channels.displayName = 'Channels';
+Claims.displayName = 'Claims';
 
-export default Channels;
+export default Claims;

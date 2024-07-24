@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import Channels from './components/channels';
+import Claims from './components/claims';
 
 type ApplicationRoutesProps = {
   children?: ReactNode;
@@ -16,7 +16,7 @@ const ApplicationRoutes = (_props: ApplicationRoutesProps) => {
    * is redundant and not strictly necessary.
    */
 
-  return <Channels />;
+  return <Claims />;
 };
 ApplicationRoutes.displayName = 'ApplicationRoutes';
 
