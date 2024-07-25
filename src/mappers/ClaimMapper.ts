@@ -6,21 +6,21 @@ export default class ClaimMapper {
       id: claim.id,
       name: claim.name,
       desc: claim.desc,
-      orderId: await this.getCustomFieldData('669f7d0d516a997bac368b3e', data),
+      orderId: await this.getCustomFieldData('66a262fbdd79ff44b5dc084e', data),
       claimNumber: await this.getCustomFieldData(
-        '668e92134dfeaa3a10872db2',
+        '66a263c7edf083195012396e',
         data
       ),
-      status: await this.getCustomFieldData('668e923dd9a627a423c9bc8f', data),
+      status: await this.getCustomFieldData('66a26330075ba7eddfbaafcf', data),
       accountId: await this.getCustomFieldData(
-        '668e92078c85550bc2956050',
+        '66a263ab17e1b29cd46db9b8',
         data
       ),
       submissionDate: this.formatDate(
-        await this.getCustomFieldData('668e91e57f81eb369ddbb6ec', data)
+        await this.getCustomFieldData('66a263bbab0811325e22bde3', data)
       ),
       productId: await this.getCustomFieldData(
-        '668e91f9b22fea75c5627332',
+        '66a2639db3ffcb2d0dadb65f',
         data
       ),
     };
@@ -48,11 +48,11 @@ export default class ClaimMapper {
       return customField.value?.number;
     } else if (customField.idValue) {
       switch (customField.idValue) {
-        case '668e99eee31a233d22761391':
+        case '66a26330075ba7eddfbaafd1':
           return 'Pending';
-        case '668e923dd9a627a423c9bc90':
+        case '66a26330075ba7eddfbaafd0':
           return 'Open';
-        case '668e99f48873a1b3c48c6973':
+        case '66a26330075ba7eddfbaafd2':
           return 'Closed';
         default:
           return null;

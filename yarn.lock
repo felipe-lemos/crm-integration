@@ -1842,7 +1842,7 @@
     lodash "4.17.21"
     prop-types "15.8.1"
 
-"@commercetools-uikit/card@19.8.0", "@commercetools-uikit/card@^19.2.0":
+"@commercetools-uikit/card@19.8.0", "@commercetools-uikit/card@^19.2.0", "@commercetools-uikit/card@^19.8.0":
   version "19.8.0"
   resolved "https://registry.yarnpkg.com/@commercetools-uikit/card/-/card-19.8.0.tgz#fae0074e4bffe0eb6d3bfb9d91b9b075d57e5574"
   integrity sha512-5QUcTUG4Ci5k4BkrmbLCCUCl9TmEMCZHeq8idTpxCTyyERxAGdIiPLyukofMdXYe2ntK9VpdnBxmLDrHYqLwqQ==

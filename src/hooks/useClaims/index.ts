@@ -8,7 +8,7 @@ const useClaims = (): any => {
   const getClaims = async (orderId: string) => {
     try {
       const response = await axios.get(
-        `https://api.trello.com/1/lists/668e9043328ae49b9d11bf25/cards?key=9d845182749f62c72011eb62429a2a40&token=ATTA858a39128ead69ba1c26d7ff11f23e66379bbd086bc5563c12d713d8844ba16d783FB2D2`
+        `https://api.trello.com/1/lists/66a257024b757ca8f82b9722/cards?key=fc8fa9f2fcd36decbfdb1402213c0a32&token=ATTA202d3a9048c050e21d10318749e46d5d28f76d0ac60187c970dc7cba146f179578C9F56D`
       );
       const data = response.data;
 
@@ -16,7 +16,7 @@ const useClaims = (): any => {
         data.map(async (claim: any) => {
           try {
             const response = await axios.get(
-              `https://api.trello.com/1/cards/${claim.id}/customFieldItems?key=9d845182749f62c72011eb62429a2a40&token=ATTA858a39128ead69ba1c26d7ff11f23e66379bbd086bc5563c12d713d8844ba16d783FB2D2`
+              `https://api.trello.com/1/cards/${claim.id}/customFieldItems?key=fc8fa9f2fcd36decbfdb1402213c0a32&token=ATTA202d3a9048c050e21d10318749e46d5d28f76d0ac60187c970dc7cba146f179578C9F56D`
             );
             const claimData = response.data;
 
@@ -37,35 +37,23 @@ const useClaims = (): any => {
     }
   };
 
-  /**
-  const getClaimDetails = useCallback(async (claimId: string) => {
-    console.log('claimId', claimId);
-    const response = await sdk.callAction({
-      actionName: 'claims/getClaimDetails',
-      payload: { claimId: claimId },
-    });
-    return response.isError ? {} : response.data;
-  }, []);
+  const getClaimDetails = async (cardId: string) => {
+    return await axios
+      .get(
+        `https://api.trello.com/1/cards/${cardId}/actions?key=fc8fa9f2fcd36decbfdb1402213c0a32&token=ATTA202d3a9048c050e21d10318749e46d5d28f76d0ac60187c970dc7cba146f179578C9F56D`
+      )
+      .then((response) => {
+        return response.data;
+      })
+      .then((data) => {
+        return data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-  const createClaim = useCallback(async (payload: any) => {
-    console.log('createClaimPayload:', payload);
-    const response = await sdk.callAction({
-      actionName: 'claims/createClaim',
-      payload: payload,
-    });
-    return response.isError ? {} : response.data;
-  }, []);
-
-  const updateClaim = useCallback(async (payload: any) => {
-    console.log('updateClaimPayload:', payload);
-    const response = await sdk.callAction({
-      actionName: 'claims/updateClaim',
-      payload: payload,
-    });
-    return response.isError ? {} : response.data;
-  }, []);
- */
-  return { getClaims };
+  return { getClaims, getClaimDetails };
 };
 
 export default useClaims;

@@ -40,6 +40,7 @@
     "@commercetools-test-data/channel": "8.5.0",
     "@commercetools-test-data/commons": "8.5.0",
     "@commercetools-test-data/core": "8.5.0",
+    "@commercetools-uikit/card": "^19.8.0",
     "@commercetools-uikit/constraints": "^19.2.0",
     "@commercetools-uikit/data-table": "^19.8.0",
     "@commercetools-uikit/data-table-manager": "^19.8.0",
